@@ -1,38 +1,279 @@
-.App {
-  text-align: center;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #000;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
+
+
+.hero {
+  position: relative;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 100%;
+  overflow: hidden;
+}
+
+
+
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  z-index: 0;
+}
+
+
+
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.50);
+
+  z-index: 1;
+}
+
+
+.content {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+}
+
+
+.custom-navbar {
+  position: absolute !important;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  background: transparent !important;
+
+  border: none !important;
+  box-shadow: none !important;
+
+  padding: 22px 0;
+
+  z-index: 1000;
+}
+
+
+
+.navbar-brand {
+  color: white !important;
+
+  font-size: 32px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  text-decoration: none;
+}
+
+.navbar-brand span {
+  color: #38bdf8;
+}
+
+
+
+.nav-link {
+  color: white !important;
+
+  font-size: 21px;
+
+  font-weight: 600;
+
+  margin: 0 14px;
+
+  transition: 0.3s;
+
+  text-decoration: none;
+}
+
+
+
+
+.nav-link:hover {
+  color: #38bdf8 !important;
+
+  transform: translateY(-2px);
+}
+
+
+
+
+.nav-link.active {
+  color: #38bdf8 !important;
+}
+
+
+
+
+.navbar-toggler {
+  border: 1px solid #38bdf8 !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
+
+
+
+.intro {
+  max-width: 850px;
+
+
+  margin: 0 0 0 50px;
+
+  padding-top: 180px;
+
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 60px;
+}
+
+
+
+
+.intro h2 {
   color: white;
+
+  font-size: 280px;
+
+  font-weight: 800;
+
+  margin-bottom: 25px;
+
+  text-align: left;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+.intro-text {
+  color: #e2e8f0;
+
+  font-family: Georgia, serif;
+
+  font-size: 20px;
+
+  line-height: 1.9;
+
+  font-weight: 400;
+
+  letter-spacing: 0.3px;
+
+  text-align: left;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+
+.highlight {
+  color: #38bdf8;
+
+  font-weight: 700;
+}
+
+
+
+@media (max-width: 768px) {
+
+  .navbar-brand {
+    font-size: 26px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .nav-link {
+    font-size: 18px;
+
+    margin: 8px 0;
   }
+
+  .intro {
+    margin-left: 10px;
+
+    padding-top: 150px;
+
+    padding-left: 20px;
+
+    padding-right: 20px;
+  }
+
+  .intro h1 {
+    font-size: 38px;
+  }
+
+  .intro-text {
+    font-size: 17px;
+  }
+}
+
+/* LIGHT MODE: GLOBAL TEXT COLORS */
+.light-mode {
+  color: #1e293b;
+}
+
+/* Contact page text */
+.contact-page.light-mode,
+.contact-page.light-mode h1,
+.contact-page.light-mode h2,
+.contact-page.light-mode h3,
+.contact-page.light-mode p,
+.contact-page.light-mode label,
+.contact-page.light-mode span {
+  color: #1e293b;
+}
+
+/* Navbar links */
+.light-mode .navbar a,
+.light-mode .navbar .nav-link,
+.light-mode nav a {
+  color: #1e293b !important;
+}
+
+/* Navbar brand */
+.light-mode .navbar-brand {
+  color: #0f172a !important;
+}
+
+/* Form inputs */
+.contact-page.light-mode input,
+.contact-page.light-mode textarea {
+  color: #1e293b !important;
+  background-color: #ffffff;
+}
+
+.contact-page.light-mode input::placeholder,
+.contact-page.light-mode textarea::placeholder {
+  color: #64748b !important;
+}
+
+/* Keep button text visible */
+.contact-page.light-mode button {
+  color: #1e293b;
+}
+
+.contact-page.light-mode .send-button,
+.contact-page.light-mode .send-button span {
+  color: #ffffff !important;
 }

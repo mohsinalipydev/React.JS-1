@@ -1,0 +1,125 @@
+
+/* NAVBAR BASE */
+nav.custom-navbar {
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+  padding: 14px 0;
+  transition: background-color 0.3s ease;
+}
+
+/* ========== LIGHT MODE ========== */
+.light-mode nav.custom-navbar,
+nav.custom-navbar.navbar-light-theme {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.light-mode nav.custom-navbar .navbar-brand,
+.light-mode nav.custom-navbar .navbar-brand span,
+.light-mode nav.custom-navbar .navbar-nav .nav-link,
+nav.custom-navbar.navbar-light-theme .navbar-brand,
+nav.custom-navbar.navbar-light-theme .navbar-brand span,
+nav.custom-navbar.navbar-light-theme .navbar-nav .nav-link {
+  color: #000000 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Light mode hover and active links */
+.light-mode nav.custom-navbar .navbar-nav .nav-link:hover,
+.light-mode nav.custom-navbar .navbar-nav .nav-link.active,
+nav.custom-navbar.navbar-light-theme .navbar-nav .nav-link:hover,
+nav.custom-navbar.navbar-light-theme .navbar-nav .nav-link.active {
+  color: #0369a1 !important;
+}
+
+/* ========== DARK MODE ========== */
+.dark-mode nav.custom-navbar,
+nav.custom-navbar.navbar-dark-theme {
+  background: #000000 !important;
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.dark-mode nav.custom-navbar .navbar-brand,
+.dark-mode nav.custom-navbar .navbar-brand span,
+.dark-mode nav.custom-navbar .navbar-nav .nav-link,
+nav.custom-navbar.navbar-dark-theme .navbar-brand,
+nav.custom-navbar.navbar-dark-theme .navbar-brand span,
+nav.custom-navbar.navbar-dark-theme .navbar-nav .nav-link {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Logo */
+nav.custom-navbar .navbar-brand {
+  font-size: 22px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+/* Keep logo accent visible in both themes */
+nav.custom-navbar .navbar-brand span {
+  color: #38bdf8 !important;
+}
+
+/* Navigation links */
+nav.custom-navbar .navbar-nav .nav-link {
+  display: block;
+  margin: 0 10px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Theme button */
+nav.custom-navbar .theme-toggle {
+  padding: 10px 14px;
+  border: 1px solid #94a3b8;
+  border-radius: 9px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.light-mode nav.custom-navbar .theme-toggle,
+nav.custom-navbar.navbar-light-theme .theme-toggle {
+  color: #111827 !important;
+}
+
+.dark-mode nav.custom-navbar .theme-toggle,
+nav.custom-navbar.navbar-dark-theme .theme-toggle {
+  color: #ffffff !important;
+}
+
+/* Mobile toggler */
+nav.custom-navbar .navbar-toggler {
+  border: 1px solid #94a3b8;
+}
+
+nav.custom-navbar.navbar-light-theme .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+nav.custom-navbar.navbar-dark-theme .navbar-toggler-icon {
+  filter: none;
+}
+
+/* Mobile menu */
+@media (max-width: 991px) {
+  nav.custom-navbar .navbar-collapse {
+    padding: 12px 0;
+  }
+
+  nav.custom-navbar.navbar-light-theme .navbar-collapse {
+    background-color: #ffffff !important;
+  }
+
+  nav.custom-navbar.navbar-dark-theme .navbar-collapse {
+    background-color: #000000 !important;
+  }
+}
