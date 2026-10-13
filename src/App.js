@@ -1,8 +1,11 @@
-
 import { useState } from "react";
 import "./App.css";
 import Navbar from "./navbar";
 import Contact from "./contact";
+import {
+  LanguageProvider,
+  useLanguage
+} from "./LanguageContext";
 
 import {
   BrowserRouter,
@@ -11,10 +14,11 @@ import {
 } from "react-router-dom";
 
 function Home() {
+  const { language } = useLanguage();
+
   return (
     <div className="hero">
 
-      {/* Background Video */}
       <video
         className="background-video"
         autoPlay
@@ -22,92 +26,129 @@ function Home() {
         loop
         playsInline
       >
-        <source src="/background.mp4" type="video/mp4" />
+        <source
+          src="/background.mp4"
+          type="video/mp4"
+        />
       </video>
 
-      {/* Dark Overlay */}
       <div className="video-overlay"></div>
 
-      {/* Home Content */}
       <div className="content">
         <div className="intro">
-          <h2>Mohsin</h2>
+
+          <h2>
+            {language === "en" ? "Mohsin" : "محسن"}
+          </h2>
 
           <p className="intro-text">
-            First, I’d like to introduce myself. My name is{" "}
-            <span className="highlight">Mohsin Ali</span>, and I’m from Lahore.
-            <br />
+            {language === "en" ? (
+              <>
+                First, I’d like to introduce myself.
+                My name is{" "}
+                <span className="highlight">
+                  Mohsin Ali
+                </span>
+                , and I’m from Lahore.
+                <br />
 
-            I completed my Bachelor’s degree in{" "}
-            <span className="highlight">
-              Software Engineering
-            </span>{" "}
-            in 2025.
-            <br />
+                I completed my Bachelor’s degree in{" "}
+                <span className="highlight">
+                  Software Engineering
+                </span>{" "}
+                in 2025.
+                <br />
 
-            I have skills in{" "}
-            <span className="highlight">
-              Python, Data Science, Machine Learning, AI, and SQL
-            </span>
-            , and I have worked on several ML and data-related projects.
-            <br />
+                I have skills in{" "}
+                <span className="highlight">
+                  Python, Data Science, Machine Learning,
+                  AI, and SQL
+                </span>
+                , and I have worked on several ML and
+                data-related projects.
+                <br />
 
-            Currently, I’m looking for an opportunity where I can apply my
-            skills and gain{" "}
-            <span className="highlight">
-              real-world experience.
-            </span>
+                Currently, I’m looking for an opportunity
+                where I can apply my skills and gain{" "}
+                <span className="highlight">
+                  real-world experience.
+                </span>
+              </>
+            ) : (
+              <div dir="rtl">
+                سب سے پہلے، میں اپنا تعارف کروانا چاہتا ہوں۔
+                میرا نام{" "}
+                <span className="highlight">
+                  محسن علی
+                </span>{" "}
+                ہے اور میرا تعلق لاہور سے ہے۔
+                <br />
+
+                میں نے 2025 میں{" "}
+                <span className="highlight">
+                  سافٹ ویئر انجینئرنگ
+                </span>{" "}
+                میں بیچلر کی ڈگری مکمل کی۔
+                <br />
+
+                مجھے{" "}
+                <span className="highlight">
+                  پائتھن، ڈیٹا سائنس، مشین لرننگ، مصنوعی ذہانت
+                  اور ایس کیو ایل
+                </span>{" "}
+                کی مہارت حاصل ہے۔ میں نے مشین لرننگ اور ڈیٹا
+                سے متعلق کئی پروجیکٹس پر کام کیا ہے۔
+                <br />
+
+                فی الحال، میں ایسے موقع کی تلاش میں ہوں جہاں
+                میں اپنی مہارتوں کو استعمال کرتے ہوئے عملی
+                تجربہ حاصل کر سکوں۔
+              </div>
+            )}
           </p>
+
         </div>
       </div>
     </div>
   );
 }
 
-// =========================
-// MAIN APP
-// =========================
-
-function App() {
-
-  // Shared theme state for the whole website
+function AppContent() {
   const [darkMode, setDarkMode] = useState(true);
 
   return (
-    <BrowserRouter>
+    <div className={darkMode ? "dark-mode" : "light-mode"}>
 
-      {/* Shared theme wrapper */}
-      <div className={darkMode ? "dark-mode" : "light-mode"}>
+      <Navbar
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+      />
 
-        {/* Navbar on every page */}
-        <Navbar
-          darkMode={darkMode}
-          setDarkMode={setDarkMode}
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route
+          path="/contact"
+          element={
+            <Contact
+              darkMode={darkMode}
+              setDarkMode={setDarkMode}
+            />
+          }
         />
+      </Routes>
 
-        {/* Pages */}
-        <Routes>
+    </div>
+  );
+}
 
-          <Route
-            path="/"
-            element={<Home />}
-          />
-
-          <Route
-            path="/contact"
-            element={
-              <Contact
-                darkMode={darkMode}
-                setDarkMode={setDarkMode}
-              />
-            }
-          />
-
-        </Routes>
-
-      </div>
-
-    </BrowserRouter>
+function App() {
+  return (
+    <LanguageProvider>
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
+    </LanguageProvider>
   );
 }
 

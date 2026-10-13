@@ -123,3 +123,86 @@ nav.custom-navbar.navbar-dark-theme .navbar-toggler-icon {
     background-color: #000000 !important;
   }
 }
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 30px;
+  background: #222;
+  color: white;
+}
+
+.logo {
+  margin: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.connection-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.status-dot.green {
+  background: #22c55e;
+}
+
+.status-dot.red {
+  background: #ef4444;
+}
+
+/* Online / Offline Status */
+.online-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin: 0 18px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Online = Green */
+.status-dot.status-online {
+  background-color: #22c55e !important;
+}
+
+/* Offline = Red */
+.status-dot.status-offline {
+  background-color: #ef4444 !important;
+  box-shadow: none;
+}
+
+/* Mobile Navbar */
+@media (max-width: 991px) {
+  .online-status {
+    margin: 15px 0;
+    justify-content: flex-start;
+  }
+}
